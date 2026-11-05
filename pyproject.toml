@@ -1,0 +1,29 @@
+[project]
+name = "telasr"
+version = "0.1.0"
+description = "LoRA fine-tuning of Whisper for phone-line Hindi: clean vs augmented vs augmented + synthetic TTS"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "torch>=2.3",
+    "torchaudio>=2.3",
+    "transformers>=4.46,<5",
+    "peft>=0.11",
+    "soundfile",
+    # scoring is shared with the benchmark repo
+    "asrbench[models] @ git+https://github.com/Xzaos/indic-asr-bench.git",
+]
+
+[project.optional-dependencies]
+tts = ["parler-tts @ git+https://github.com/huggingface/parler-tts.git"]
+dev = ["pytest"]
+
+[project.scripts]
+telasr = "telasr.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
