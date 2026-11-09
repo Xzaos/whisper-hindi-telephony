@@ -1,4 +1,4 @@
-# whisper-hindi-telephony
+# Whisper Hindi Telephony
 
 Does fine-tuning Whisper on phone-degraded audio help it on phone calls, and does adding synthetic TTS speech help further? I trained two LoRA arms on whisper-small that differ only in their training data and scored them on clean and phone-line Hindi. The third arm, with synthetic speech, did not run (see Results).
 
